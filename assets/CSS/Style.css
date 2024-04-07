@@ -1,0 +1,139 @@
+/* Background */
+.background {
+    background: linear-gradient(315deg, purple, black);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* Eid Box */
+.eid {
+    position: relative;
+    z-index: 1;
+    background-color: black;
+    width: 250px;
+    height: 80px;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 2px;
+    border: 2px solid purple;
+    border-radius: 10px;
+    animation: borderAnimation 1s infinite,
+        mymove 7s infinite,
+        rotate 7s linear infinite;
+    /* merge */
+    animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes mymove {
+    from {
+        top: -90px;
+    }
+
+    to {
+        top: 55vh;
+    }
+}
+
+@keyframes borderAnimation {
+    25% {
+        border-color: purple;
+    }
+
+    50% {
+        border-color: red;
+    }
+
+    100% {
+        border-color: yellow;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(4deg);
+    }
+
+    20% {
+        transform: rotate(8deg);
+    }
+
+    40% {
+        transform: rotate(-2deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+}
+
+/* Rope */
+.rope::before {
+    content: "";
+    position: absolute;
+    border: 10px solid black;
+    border-radius: 50%;
+    top: 53.5vh;
+    left: -8px;
+}
+
+.rope {
+    position: relative;
+    left: 125px;
+    width: 3px;
+    height: 55vh;
+    background-color: black;
+    animation: moverope 7s infinite;
+    animation-timing-function: cubic-bezier(0, 0, 0, 1);
+}
+
+@keyframes moverope {
+    from {
+        top: -69vh;
+    }
+
+    to {
+        top: -0vh;
+    }
+}
+
+.eid i {
+    color: red;
+}
+
+/* Ramadan Box */
+.ramadan {
+    position: absolute;
+    top: 55vh;
+    background-color: black;
+    width: 320px;
+    height: 80px;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: hideElement 7s infinite;
+    animation-timing-function: cubic-bezier(0, 0, 1, 3);
+}
+
+@keyframes hideElement {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.ramadan i {
+    color: rgb(255, 196, 0);
+}
