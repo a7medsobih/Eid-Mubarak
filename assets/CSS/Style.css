@@ -19,9 +19,9 @@
     letter-spacing: 2px;
     border: 2px solid purple;
     border-radius: 10px;
-    animation: borderAnimation 1s both,
-        mymove 7s both,
-        rotate 7s linear both;
+    animation: borderAnimation 1s infinite,
+        mymove 7s infinite,
+        rotate 7s linear infinite;
     /* merge */
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
     display: flex;
@@ -88,7 +88,7 @@
     width: 3px;
     height: 55vh;
     background-color: black;
-    animation: moverope 7s both;
+    animation: moverope 7s infinite;
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
 }
 
@@ -120,7 +120,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: hideElement 7s both;
+    animation: hideElement 7s infinite;
     animation-timing-function: cubic-bezier(0, 0, 1, 2);
 }
 
