@@ -19,9 +19,9 @@
     letter-spacing: 2px;
     border: 2px solid purple;
     border-radius: 10px;
-    animation: borderAnimation 1s infinite,
-        mymove 7s infinite,
-        rotate 7s linear infinite;
+    animation: borderAnimation 1s backwards,
+        mymove 7s backwards,
+        rotate 7s linear backwards;
     /* merge */
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
     display: flex;
@@ -84,11 +84,11 @@
 
 .rope {
     position: relative;
-    left: 125px;
+    left: calc(250px/2);
     width: 3px;
     height: 55vh;
     background-color: black;
-    animation: moverope 7s infinite;
+    animation: moverope 7s backwards;
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
 }
 
@@ -120,8 +120,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: hideElement 7s infinite;
-    animation-timing-function: cubic-bezier(0, 0, 1, 3);
+    animation: hideElement 7s backwards;
+    animation-timing-function: cubic-bezier(0, 0, 1, 2);
 }
 
 @keyframes hideElement {
@@ -136,4 +136,20 @@
 
 .ramadan i {
     color: rgb(255, 196, 0);
+}
+
+@media (max-width: 576px) {
+    .eid{
+        width: 200px;
+        height: 70px;
+        font-size: 23px;
+    }
+    .ramadan{
+        width: 270px;
+        height: 70px;
+        font-size: 23px;
+    }
+    .rope {
+        left: calc(200px/2);
+    }
 }
