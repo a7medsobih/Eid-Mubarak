@@ -1,27 +1,40 @@
 /* Background */
 .background {
-    background: linear-gradient(315deg, purple, black);
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
+    animation: color-change-2x 3s 9s linear infinite alternate both;
 }
+
+@keyframes color-change-2x {
+    0% {
+
+        background: linear-gradient(315deg, purple , black);
+    }
+
+    100% {
+        background: linear-gradient(315deg,  purple, rgb(8, 0, 22));
+    }
+}
+
 
 /* Eid Box */
 .eid {
     position: relative;
-    z-index: 1;
-    background-color: black;
+    right: calc(250px/2);
+    background: linear-gradient(to left, black, rgba(68, 68, 68, 0.692));
     width: 250px;
     height: 80px;
     color: white;
     font-size: 30px;
     letter-spacing: 2px;
-    border: 2px solid purple;
+    border: 2px solid red;
     border-radius: 10px;
     animation: borderAnimation 1s infinite,
         mymove 7s infinite,
-        rotate 7s linear infinite;
+        /* slide-left 6s 9s infinite, */
+        bounce-top 2s 7s both;
     /* merge */
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
     display: flex;
@@ -31,17 +44,17 @@
 
 @keyframes mymove {
     from {
-        top: -90px;
+        top: 55vh;
     }
 
     to {
-        top: 55vh;
+        top: 348.5px;
     }
 }
 
 @keyframes borderAnimation {
     25% {
-        border-color: purple;
+        border-color: rgb(3, 13, 71);
     }
 
     50% {
@@ -53,24 +66,75 @@
     }
 }
 
-@keyframes rotate {
+/* @keyframes slide-left {
     0% {
-        transform: rotate(4deg);
+        transform: rotate(0);
+        transform-origin: top right;
     }
 
-    20% {
-        transform: rotate(8deg);
+    33.3% {
+        transform: rotate(15deg);
+        transform-origin: top right;
+    }
+
+    75% {
+        transform: rotate(-10deg);
+        transform-origin: top left;
+    }
+
+    100% {
+        transform: rotate(0);
+        transform-origin: top left;
+    }
+} */
+
+@keyframes bounce-top {
+    0% {
+        transform: translateY(-45px);
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+
+    24% {
+        opacity: 1;
     }
 
     40% {
-        transform: rotate(-2deg);
+        transform: translateY(-24px);
+        animation-timing-function: ease-in;
     }
 
-    60% {
-        transform: rotate(0deg);
+    65% {
+        transform: translateY(-12px);
+        animation-timing-function: ease-in;
     }
 
+    82% {
+        transform: translateY(-6px);
+        animation-timing-function: ease-in;
+    }
+
+    93% {
+        transform: translateY(-4px);
+        animation-timing-function: ease-in;
+    }
+
+    25%,
+    55%,
+    75%,
+    87% {
+        transform: translateY(0px);
+        animation-timing-function: ease-out;
+    }
+
+    100% {
+        transform: translateY(0px);
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
 }
+
+
 
 /* Rope */
 .rope::before {
@@ -84,21 +148,21 @@
 
 .rope {
     position: relative;
-    left: calc(250px/2);
+    /* left: calc(250px/2); */
     width: 3px;
     height: 55vh;
     background-color: black;
-    animation: moverope 7s infinite;
-    animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    animation: moverope 7s cubic-bezier(0, 0, 0, 1) both,
+        rotate-90-tl-cw 6s 9s infinite;
 }
 
 @keyframes moverope {
-    from {
-        top: -69vh;
+    0% {
+        top: -428.5px;
     }
 
-    to {
-        top: -0vh;
+    100% {
+        top: 0;
     }
 }
 
@@ -106,11 +170,34 @@
     color: red;
 }
 
+@keyframes rotate-90-tl-cw {
+    0% {
+        transform: rotate(0);
+        transform-origin: 0% 0%;
+    }
+
+    33.3% {
+        transform: rotate(60deg);
+        transform-origin: 0% 0%;
+    }
+
+    75% {
+        transform: rotate(-55deg);
+        transform-origin: 0% 0%;
+    }
+
+    100% {
+        transform: rotate(0);
+        transform-origin: 0% 0%;
+
+    }
+}
+
 /* Ramadan Box */
 .ramadan {
     position: absolute;
     top: 55vh;
-    background-color: black;
+    background: linear-gradient(to right, black, rgba(34, 34, 34, 0.411));
     width: 320px;
     height: 80px;
     color: white;
@@ -120,35 +207,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: hideElement 7s infinite;
-    animation-timing-function: cubic-bezier(0, 0, 1, 2);
+    animation: scale-out-center 4s 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
 
-@keyframes hideElement {
-    from {
+@keyframes scale-out-center {
+    0% {
+        transform: scale(1);
         opacity: 1;
     }
 
-    to {
+    100% {
+        transform: scale(0);
         opacity: 0;
     }
 }
+
 
 .ramadan i {
     color: rgb(255, 196, 0);
 }
 
 @media (max-width: 576px) {
-    .eid{
+    .eid {
         width: 200px;
         height: 70px;
         font-size: 23px;
     }
-    .ramadan{
+
+    .ramadan {
         width: 270px;
         height: 70px;
         font-size: 23px;
     }
+
     .rope {
         left: calc(200px/2);
     }
