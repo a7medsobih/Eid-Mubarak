@@ -1,5 +1,6 @@
 /* Background */
 .background {
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -408,14 +409,14 @@
         width: 160px;
         right: calc(160px/2);
         height: 50px;
-        font-size: 18px;
+        font-size: 15px;
     }
 
     /* Adjust Ramadan box size */
     .ramadan {
         width: 200px;
         height: 50px;
-        font-size: 18px;
+        font-size: 15px;
     }
 
     @keyframes bounce-top {
