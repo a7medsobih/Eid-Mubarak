@@ -1,23 +1,21 @@
 /* Background */
 .background {
-    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
-    animation: color-change-2x 3s 9s linear infinite alternate both;
+    animation: color-change-2x 5s 9s linear infinite alternate both;
 }
 
 @keyframes color-change-2x {
     0% {
 
-        background: linear-gradient(315deg, purple , black);
+        background: linear-gradient(315deg, purple, black);
     }
 
     100% {
-        background: linear-gradient(315deg,  purple, rgb(8, 0, 22));
+        background: linear-gradient(315deg, rgba(128, 0, 128, 0.74), rgb(8, 0, 22));
     }
 }
-
 
 /* Eid Box */
 .eid {
@@ -35,11 +33,14 @@
         mymove 7s infinite,
         /* slide-left 6s 9s infinite, */
         bounce-top 2s 7s both;
-    /* merge */
     animation-timing-function: cubic-bezier(0, 0, 0, 1);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.eid i {
+    color: red;
 }
 
 @keyframes mymove {
@@ -48,7 +49,7 @@
     }
 
     to {
-        top: 348.5px;
+        top: 55vh
     }
 }
 
@@ -134,8 +135,6 @@
     }
 }
 
-
-
 /* Rope */
 .rope::before {
     content: "";
@@ -153,7 +152,7 @@
     height: 55vh;
     background-color: black;
     animation: moverope 7s cubic-bezier(0, 0, 0, 1) both,
-        rotate-90-tl-cw 6s 9s infinite;
+        rotate-90-tl-cw 10s 9s infinite;
 }
 
 @keyframes moverope {
@@ -166,23 +165,29 @@
     }
 }
 
-.eid i {
-    color: red;
-}
-
 @keyframes rotate-90-tl-cw {
     0% {
         transform: rotate(0);
         transform-origin: 0% 0%;
     }
 
-    33.3% {
-        transform: rotate(60deg);
+    20% {
+        transform: rotate(70deg);
         transform-origin: 0% 0%;
     }
 
-    75% {
-        transform: rotate(-55deg);
+    40% {
+        transform: rotate(-65deg);
+        transform-origin: 0% 0%;
+    }
+
+    60% {
+        transform: rotate(35deg);
+        transform-origin: 0% 0%;
+    }
+
+    80% {
+        transform: rotate(-25deg);
         transform-origin: 0% 0%;
     }
 
@@ -227,20 +232,235 @@
     color: rgb(255, 196, 0);
 }
 
-@media (max-width: 576px) {
+/* For screens smaller than 992px  */
+@media (max-width: 992px) {
+    @keyframes rotate-90-tl-cw {
+        0% {
+            transform: rotate(0);
+            transform-origin: 0% 0%;
+        }
+
+        20% {
+            transform: rotate(45deg);
+            transform-origin: 0% 0%;
+        }
+
+        40% {
+            transform: rotate(-40deg);
+            transform-origin: 0% 0%;
+        }
+
+        60% {
+            transform: rotate(22.5deg);
+            transform-origin: 0% 0%;
+        }
+
+        80% {
+            transform: rotate(-12.5deg);
+            transform-origin: 0% 0%;
+        }
+
+        100% {
+            transform: rotate(0);
+            transform-origin: 0% 0%;
+        }
+    }
+}
+
+/* For screens smaller than 768px (e.g., tablets and smartphones) */
+@media (max-width: 768px) {
+
+    /* Adjust eid box size */
     .eid {
         width: 200px;
-        height: 70px;
-        font-size: 23px;
+        right: calc(200px/2);
+        height: 60px;
+        font-size: 22px;
     }
 
+    /* Adjust Ramadan box size */
     .ramadan {
-        width: 270px;
-        height: 70px;
-        font-size: 23px;
+        width: 250px;
+        height: 60px;
+        font-size: 22px;
     }
 
-    .rope {
-        left: calc(200px/2);
+    @keyframes bounce-top {
+        0% {
+            transform: translateY(-25px);
+            animation-timing-function: ease-in;
+            opacity: 1;
+        }
+
+        24% {
+            opacity: 1;
+        }
+
+        40% {
+            transform: translateY(-24px);
+            animation-timing-function: ease-in;
+        }
+
+        65% {
+            transform: translateY(-12px);
+            animation-timing-function: ease-in;
+        }
+
+        82% {
+            transform: translateY(-6px);
+            animation-timing-function: ease-in;
+        }
+
+        93% {
+            transform: translateY(-4px);
+            animation-timing-function: ease-in;
+        }
+
+        25%,
+        55%,
+        75%,
+        87% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+        }
+
+        100% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+            opacity: 1;
+        }
+    }
+
+    @keyframes rotate-90-tl-cw {
+        0% {
+            transform: rotate(0);
+            transform-origin: 0% 0%;
+        }
+
+        20% {
+            transform: rotate(30deg);
+            transform-origin: 0% 0%;
+        }
+
+        40% {
+            transform: rotate(-25deg);
+            transform-origin: 0% 0%;
+        }
+
+        60% {
+            transform: rotate(15deg);
+            transform-origin: 0% 0%;
+        }
+
+        80% {
+            transform: rotate(-5deg);
+            transform-origin: 0% 0%;
+        }
+
+        100% {
+            transform: rotate(0);
+            transform-origin: 0% 0%;
+        }
+    }
+}
+
+/* For screens smaller than 576px */
+@media (max-width: 576px) {
+
+    @keyframes rotate-90-tl-cw {
+        0% {
+            transform: rotate(0);
+            transform-origin: 0% 0%;
+        }
+
+        20% {
+            transform: rotate(25deg);
+            transform-origin: 0% 0%;
+        }
+
+        40% {
+            transform: rotate(-20deg);
+            transform-origin: 0% 0%;
+        }
+
+        60% {
+            transform: rotate(12.5deg);
+            transform-origin: 0% 0%;
+        }
+
+        75% {
+            transform: rotate(-2.5deg);
+            transform-origin: 0% 0%;
+        }
+
+        100% {
+            transform: rotate(0);
+            transform-origin: 0% 0%;
+        }
+    }
+}
+
+/* For screens smaller than 480px (e.g., smartphones) */
+@media (max-width: 480px) {
+
+    /* Adjust eid box size */
+    .eid {
+        width: 160px;
+        right: calc(160px/2);
+        height: 50px;
+        font-size: 18px;
+    }
+
+    /* Adjust Ramadan box size */
+    .ramadan {
+        width: 200px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    @keyframes bounce-top {
+        0% {
+            transform: translateY(-25px);
+            animation-timing-function: ease-in;
+            opacity: 1;
+        }
+
+        24% {
+            opacity: 1;
+        }
+
+        40% {
+            transform: translateY(-24px);
+            animation-timing-function: ease-in;
+        }
+
+        65% {
+            transform: translateY(-12px);
+            animation-timing-function: ease-in;
+        }
+
+        82% {
+            transform: translateY(-6px);
+            animation-timing-function: ease-in;
+        }
+
+        93% {
+            transform: translateY(-4px);
+            animation-timing-function: ease-in;
+        }
+
+        25%,
+        55%,
+        75%,
+        87% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+        }
+
+        100% {
+            transform: translateY(0px);
+            animation-timing-function: ease-out;
+            opacity: 1;
+        }
     }
 }
